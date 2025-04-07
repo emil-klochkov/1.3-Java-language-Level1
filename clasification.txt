@@ -1,0 +1,5 @@
+package Ex3;
+
+=== Start of clasification ===
+Emil: 4 points
+Emil: 8 points

@@ -1,3 +1,5 @@
+package Ex3;
+
 Spain - Madrid
 France - Paris
 Italy - Rome

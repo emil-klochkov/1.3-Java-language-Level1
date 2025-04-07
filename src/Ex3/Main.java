@@ -25,10 +25,12 @@ public class Main {
 
         int score = 0;
         List<String> countries = new ArrayList<>(countryCapitalMap.keySet());
-        Random random = new Random();
+        Collections.shuffle(countries); // Mezcla aleatoriamente la lista
 
-        for (int i = 0; i < 10; i++) {
-            String randomCountry = countries.get(random.nextInt(countries.size()));
+        int totalQuestions = Math.min(10, countries.size()); // Por si hay menos de 10 países
+
+        for (int i = 0; i < totalQuestions; i++) {
+            String randomCountry = countries.get(i); // Ya está mezclado, así que no se repite
             System.out.println("What is the capital of " + randomCountry + "?");
             String userAnswer = scanner.nextLine();
 
@@ -40,9 +42,11 @@ public class Main {
             }
         }
 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("clasification.txt", true))) {
             writer.write(username + ": " + score + " points");
             writer.newLine();
         } catch (IOException e) {
+            System.err.println("Error writing to clasification.txt: " + e.getMessage());
         }
 
         System.out.println("Game over! " + username + ", you scored " + score + " points.");
