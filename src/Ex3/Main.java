@@ -40,11 +40,9 @@ public class Main {
             }
         }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("clasification.txt", true))) {
             writer.write(username + ": " + score + " points");
             writer.newLine();
         } catch (IOException e) {
-            System.err.println("Error writing to clasification.txt: " + e.getMessage());
         }
 
         System.out.println("Game over! " + username + ", you scored " + score + " points.");
