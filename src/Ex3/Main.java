@@ -32,7 +32,7 @@ public class Main {
         for (int i = 0; i < totalQuestions; i++) {
             String randomCountry = countries.get(i); // Ya está mezclado, así que no se repite
             System.out.println("What is the capital of " + randomCountry + "?");
-            String userAnswer = scanner.nextLine();
+            String userAnswer = scanner.nextLine().trim();
 
             if (countryCapitalMap.get(randomCountry).equalsIgnoreCase(userAnswer)) {
                 System.out.println("Correct!");
